@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: lavenderblush;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 30px;
+        }
+
+        input {
+            width: 10%;
+            margin-top: 20px;
+            height: 20px;
+        }
+
+        input#btn {
+            width: 50px;
+            height: 25px;
+            text-align: center;
+            background-color: lavender;
+            border: none;
+            box-shadow: 3px 3px 2px #888;
+
+        }
+
+        input#btn:hover {
+            background-color: rgb(245, 245, 255);
+            cursor: pointer;
+        }
+
+        input#btn:active {
+            background-color: rgb(249, 249, 255);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- BMI = 體重(公斤)/身高(公尺)的平方
+    BMI ＜ 18.5：過輕
+    18.5≦BMI＜24：正常
+    24≦BMI＜27：過重
+    27≦BMI＜30：輕度肥胖
+    30≦BMI＜35：中度肥胖
+    BMI≧35：重度肥胖 -->
+
+    <div class="container">
+        <input type="text" id="height" placeholder="&nbsp;請輸入身高(公尺)">
+        <input type="text" id="weight" placeholder="&nbsp;請輸入體重(公斤)">
+        <input type="button" id="btn" value="計算">
+    </div>
+    <script>
+        let height = document.getElementById('height');
+        let weight = document.getElementById('weight');
+        let btn = document.getElementById('btn');
+
+        btn.addEventListener('click', () => {
+            let h_value = height.value;
+            let w_value = weight.value;
+
+            let BMI = w_value / (h_value * h_value);
+            if (BMI < 18.5) {
+                alert('過輕');
+            }
+            else if (18.5 <= BMI && BMI < 24) {
+                alert('正常');
+            }
+            else if (24 <= BMI && BMI < 27) {
+                alert('過重');
+            }
+            else if (27 <= BMI && BMI < 30) {
+                alert('輕度肥胖');
+            }
+            else if (30 <= BMI && BMI < 35) {
+                alert('中度肥胖');
+            }
+            else if (BMI >= 35) {
+                alert('重度肥胖');
+            }
+        }
+        )
+    </script>
+</body>
+
+</html>

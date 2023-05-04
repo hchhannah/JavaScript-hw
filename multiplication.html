@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: lavenderblush;
+        }
+
+        .flex {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .table {
+            border: 1px solid rgb(94, 0, 128);
+            border-collapse: collapse;
+            margin: auto;
+
+        }
+
+        tr {
+            width: 100%;
+            height: 100%;
+        }
+
+        td {
+            padding: 10px;
+            border-right: 1px solid rgb(94, 0, 128);
+        }
+
+
+        /* color: red; */
+
+        tbody tr td:nth-child(2n) {
+            background-color: #fefefe;
+        }
+
+        tbody tr td:nth-child(2n-1) {
+            background-color: #F3F3FA;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- <table id="cal"></table> -->
+    <div class="flex">
+        <table id="cal" class="table">
+        </table>
+    </div>
+    <script>
+        let el = document.getElementById('cal');
+        let mul_f = () => {
+            for (var i = 1; i < 10; i++) {
+                var content = "<tr>"
+                for (var j = 1; j < 10; j++) {
+                    content += `<td>${j} x ${i} = ${i * j}</td>`;
+                }
+                content += "</tr>";
+                el.innerHTML += content;
+            }
+        };
+        mul_f();
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temperature</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: lavenderblush;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 30px;
+        }
+
+        input {
+            width: 250px;
+            margin-top: 20px;
+            height: 30px;
+        }
+
+        input#btn {
+            width: 50px;
+            height: 25px;
+            text-align: center;
+            background-color: lavender;
+            border: none;
+            box-shadow: 3px 3px 2px #888;
+
+        }
+
+        input#btn:hover {
+            background-color: rgb(245, 245, 255);
+            cursor: pointer;
+        }
+
+        input#btn:active {
+            background-color: rgb(249, 249, 255);
+        }
+
+        #result {
+            margin: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 請設計一個 function，傳入攝氏溫度可以轉成華氏溫度，傳入華氏溫度可以轉成攝氏溫度 -->
+    <div class="container">
+        <input type="text" id="Cel" placeholder="&nbsp;請輸入攝氏溫度(Celsius to Fahrenheit)">
+        <input type="text" id="Fah" placeholder="&nbsp;請輸入華氏溫度(Fahrenheit to Celsius)">
+        <input type="button" id="btn" value="計算">
+        <p id="result"></p>
+    </div>
+    <script>
+        let Cel = document.getElementById('Cel');
+        let Fah = document.getElementById('Fah');
+        let btn = document.getElementById('btn');
+        let result = document.getElementById('result');
+
+        btn.addEventListener('click', () => {
+            let C_value = Cel.value;
+            let F_value = Fah.value;
+            if (!F_value) {
+                let trans_to_F = parseInt(C_value * (9 / 5) + 32);
+                result.value = `攝氏${C_value}度=華氏${trans_to_F}度`;
+                result.innerHTML = result.value;
+                Cel.value = "";
+            } else {
+                let trans_to_C = parseInt(5 / 9 * (F_value - 32));
+                result.value = `華氏${F_value}度=攝氏${trans_to_C}度`;
+                result.innerHTML = result.value;
+                Fah.value = "";
+            }
+
+        }
+        )
+
+    </script>
+</body>
+
+</html>

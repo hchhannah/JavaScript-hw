@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game</title>
+</head>
+<!-- 請輸入猜測的數字(1~100)，輸入0離開遊戲 =>50
+數字太大!
+請輸入猜測的數字(1~100)，輸入0離開遊戲 =>25
+數字太大!
+請輸入猜測的數字(1~100)，輸入0離開遊戲 =>12
+數字太大!
+請輸入猜測的數字(1~100)，輸入0離開遊戲 =>6
+猜中數字 = 6 -->
+<script>
+    let guess = () => {
+        let num = Math.random();
+        let guessNum = Math.floor(num * 100); //取整數
+        console.log(guessNum);
+        let i = 1;
+        while (i != 0) {
+            let my_num = window.prompt('請輸入猜測的數字(1~100)，輸入0離開遊戲');
+            if (my_num == 0) {
+                alert('結束遊戲!!!')
+                break;
+            }
+            if (my_num == guessNum) {
+                alert('猜中了!!!');
+            } else if (my_num > guessNum) {
+                alert('數字太大!');
+            } else if (my_num < guessNum) {
+                alert('數字太小!');
+            }
+        }
+    }
+    guess();
+</script>
+
+<body>
+
+</body>
+
+</html>

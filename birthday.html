@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HOW OLD R U</title>
+    <style>
+        .container {
+            margin: 30px;
+            width: 10%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        #birthday {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <input type="date" name="birthday" id="birthday">
+        <input type="button" value="calculate" id="btn">
+    </div>
+
+    <script>
+        let birth = document.getElementById('birthday')
+        let btn = document.getElementById('btn')
+        let now_date = new Date();
+        let now_year = now_date.getFullYear();
+        let now_month = now_date.getMonth() + 1;
+        let now_day = now_date.getDate();
+        // console.log(now_year);
+        // console.log(now_month);
+        // console.log(now_day);
+        let age = 0;
+
+        btn.addEventListener("click", () => {
+            let b_value = birth.value.split('-');
+            birth_year = parseInt(b_value[0]);
+            birth_month = parseInt(b_value[1]);
+            birth_date = parseInt(b_value[2]);
+            age = now_year - birth_year;
+
+            console.log(now_month);
+            console.log(birth_month);
+            if (now_month < birth_month) {
+                age -= 1;
+            } else if (now_month == birth_month && birth_date > now_day) {
+                age -= 1;
+            }
+            alert(`你今年${age}歲`);
+        })
+
+    </script>
+</body>
+
+</html>

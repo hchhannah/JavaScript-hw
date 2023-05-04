@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tree</title>
+    <style>
+        #tree {
+            margin: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 用^畫出下列圖型 -->
+    <div class="container">
+        <input type="text" id="layers" placeholder="請輸入幾層">
+        <input type="button" id="btn" value="產生">
+    </div>
+    <div id="tree">
+    </div>
+    <script>
+        let start = new Date().getTime();
+        let el = document.getElementById('tree');
+        let layer = document.getElementById('layers');
+        let btn = document.getElementById('btn');
+        let symbol = "^";
+        let space = "<span>&nbsp;</span>";
+        let temp = "";
+        let content = "";
+        let count = 0;
+        btn.addEventListener('click', () => {
+            let layers = layer.value;
+            content = "";
+            temp = "";
+            for (let i = 1; i <= layers; i++) {
+                let row = "";
+                row = symbol.repeat(i * 2 - 1);
+                let padding = space.repeat((layers - i) * 2);
+                temp += padding + row + "<br>";
+                content = temp;
+            }
+
+            el.innerHTML = content;
+
+            let trunk = space.repeat((layers - 1) * 2) + symbol + "<br>" + space.repeat((layers - 1) * 2) + symbol + "<br>";
+            el.innerHTML += trunk;
+            count += 1;
+        })
+
+
+
+        // let print = () => {
+        // };
+        // print();
+        let end = new Date().getTime();
+        let time = (end - start) / 1000;
+        console.log(time, "sec");
+
+    </script>
+
+</body>
+
+</html>

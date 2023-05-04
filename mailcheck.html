@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: lavenderblush;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 30px;
+        }
+
+        input {
+            width: 10%;
+            margin-top: 20px;
+            height: 25px;
+        }
+
+        input#btn {
+            width: 50px;
+            height: 25px;
+            text-align: center;
+            background-color: lavender;
+            border: none;
+            box-shadow: 3px 3px 2px #888;
+
+        }
+
+        input#btn:hover {
+            background-color: rgb(245, 245, 255);
+            cursor: pointer;
+        }
+
+        input#btn:active {
+            background-color: rgb(249, 249, 255);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 使用string物件檢查電子郵件中要有 @ . 以及 @ 不能重複 -->
+    <div class="container">
+        <input type="text" id="mail" placeholder="&nbsp;請輸入信箱">
+        <input type="button" id="btn" value="CHECK">
+    </div>
+    <script>
+        let el = document.getElementById('mail');
+        let btn = document.getElementById('btn');
+
+        btn.addEventListener('click', () => {
+            re = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
+            console.log(re.test(el.value));
+            if (re.test(el.value)) {
+                alert("正確!");
+            } else {
+                alert("格式錯誤!")
+            }
+        })
+    </script>
+</body>
+
+</html>
